@@ -1,6 +1,7 @@
 class MoviesController < ApplicationController
   def index
-    @movies = Movie.all.order('title')
+    @movie = Movie.all
+    @movies = @movie.order('title')
     @cancel_path = movies_path
   end
 
