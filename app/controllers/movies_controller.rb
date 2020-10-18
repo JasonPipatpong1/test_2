@@ -14,6 +14,7 @@ class MoviesController < ApplicationController
   end
 
   def new
+    @movie = Movie.news
   end
 
   def create
