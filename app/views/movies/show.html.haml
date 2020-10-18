@@ -28,10 +28,10 @@
       %td | comments :
       %tr
         %td= review.comments
-        -if @current_user.name == review.moviegoer.name
-          = link_to 'Edit review', edit_movie_review_path(@movie,review)
-          = link_to 'Delete review', movie_review_path(@movie,review), :method => :delete
-        
+
+        = link_to 'Edit review', edit_movie_review_path(@movie,review)
+        = link_to 'Delete review', movie_review_path(@movie,review), :method => :delete
+
         <br>
 
 = link_to 'Edit', edit_movie_path(@movie)
