@@ -1,19 +1,48 @@
-var MovieListFilter = {
-  filter_adult: function () {
-    // 'this' is *unwrapped* element that received event (checkbox)
-    if ($(this).is(':checked')) {
-      $('tr.adult').hide();
+$(document).ready(function()
+{
+  $('#G_filter').change(function()
+  {
+    if(this.checked == true){
+      $('tr.G').show();
     } else {
-      $('tr.adult').show();
+      $('tr.G').hide();
     };
-  },
-  setup: function() {
-    // construct checkbox with label
-    var labelAndCheckbox =
-      $('<label for="filter">Only movies suitable for children</label>' +
-        '<input type="checkbox" id="filter"/>' );
-    labelAndCheckbox.insertBefore('#movies');
-    $('#filter').change(MovieListFilter.filter_adult);
-  }
-}
-$(MovieListFilter.setup); // run setup function when document ready
+  });
+
+  $('#PG_filter').change(function()
+  {
+    if(this.checked == true){
+      $('tr.PG').show();
+    } else {
+      $('tr.PG').hide();
+    };
+  });
+
+  $('#PG-13_filter').change(function()
+  {
+    if(this.checked == true){
+      $('tr.PG-13').show();
+    } else {
+      $('tr.PG-13').hide();
+    };
+  });
+
+  $('#R_filter').change(function()
+  {
+    if(this.checked == true){
+      $('tr.R').show();
+    } else {
+      $('tr.R').hide();
+    };
+  });
+
+  $('#NC-17_filter').change(function()
+  {
+    if(this.checked == true){
+      $('tr.NC-17').show();
+    } else {
+      $('tr.NC-17').hide();
+    };
+  });
+
+});
