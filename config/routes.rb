@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   post 'logout' => 'sessions#destroy'
   get  'auth/failure' => 'sessions#failure'
   get  'auth/twitter' => 'login_twitter'
+  post '/movies/show_tmdb' => 'movies#search_tmdb'
 
 end

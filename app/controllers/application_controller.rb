@@ -10,4 +10,11 @@ class ApplicationController < ActionController::Base
           redirect_to OmniAuth.login_path(:provider)
       end
     end
+    require 'themoviedb'
+    Tmdb::Api.key("84b6d78b692ce56905293d36159048ed")
+
+    def set_config
+      @configuration = Tmdb::Configuration.new
+    end
+
 end
