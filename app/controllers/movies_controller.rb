@@ -7,13 +7,10 @@ class MoviesController < ApplicationController
   end
 
   def show
-    id = params[:id]
-    begin
-      @movie = Movie.find(id)
-      @cancel_path = movie_path(@movie)
-    rescue ActiveRecord::RecordNotFound
-      redirect_to movies_path
-    end
+    id = params[:id] # retrieve movie ID from URI route
+    @movie = Movie.find(id) # look up movie by unique ID
+    render(:partial => 'movie', :object => @movie) if request.xhr?
+    # will render app/views/movies/show.<extension> by default
   end
 
   def new

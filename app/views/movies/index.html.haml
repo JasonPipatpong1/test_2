@@ -1,5 +1,5 @@
-%h1 All Movies
 
+%h1 All Movies
 %table#movies
   %thead
     %tr
@@ -11,7 +11,7 @@
       %th More Info
   %tbody
     - @movies.each_with_index do |movie, index|
-      %tr
+      %tr{:class=>('adult' unless movie.rating=~/^G|PG$/)}
         %td= index+1
         %td= movie.title
         %td= movie.rating
