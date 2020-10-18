@@ -5,11 +5,11 @@ class SessionsController < ApplicationController
 
   def create
     auth=request.env["omniauth.auth"]
-    user=Moviegoer.find_by(:provider => auth["provider"], :uid => auth["uid"]) || 
-      Moviegoer.create_with_omniauth(auth)
-    # unless user
-    #   user = Moviegoer.create_with_omniauth(auth)
-    # end
+    user=Moviegoer.find_by(:provider => auth["provider"], :uid => auth["uid"]) ||
+      # Moviegoer.create_with_omniauth(auth)
+    unless user
+      user = Moviegoer.create_with_omniauth(auth)
+    end
 
     session[:user_id] = user.id
     redirect_to movies_path
