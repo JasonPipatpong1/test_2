@@ -1,5 +1,5 @@
 class MoviesController < ApplicationController
-  skip_before_action :authenticate!, only: [ :show, :index ]
+  skip_before_action :authenticate!, only: [ :show, :index, :new, :edit, :destroy]
   def index
     @movie = Movie.all
     @movies = @movie.order('title')
@@ -14,7 +14,12 @@ class MoviesController < ApplicationController
   end
 
   def new
-    @movie = Movie.new
+    if set_current_user
+      @movie = Movie.new
+    else
+      flash[:warning] = "Please log in before use this feature"
+      redirect_to movies_path
+    end
   end
 
   def create
@@ -24,9 +29,14 @@ class MoviesController < ApplicationController
   end
 
   def edit
-    id = params[:id]
-    @movie = Movie.find(id)
-    @cancel_path = movie_path(@movie)
+    if set_current_user
+      id = params[:id]
+      @movie = Movie.find(id)
+      @cancel_path = movie_path(@movie)
+    else
+      flash[:warning] = "Please log in before use this feature"
+      redirect_to movies_path
+    end
   end
 
   def update
@@ -40,10 +50,15 @@ class MoviesController < ApplicationController
   end
 
   def destroy
-    @movie = Movie.find(params[:id])
-    @movie.destroy
-    flash[:notice] = "#{@movie.title} was successfully deleted."
-    redirect_to movies_path
+    if set_current_user
+      @movie = Movie.find(params[:id])
+      @movie.destroy
+      flash[:notice] = "#{@movie.title} was successfully deleted."
+      redirect_to movie_path(@movie)
+    else
+      flash[:warning] = "Please log in before use this feature"
+      redirect_to movies_path
+    end
   end
 
   def search_tmdb

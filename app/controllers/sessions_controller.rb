@@ -23,6 +23,11 @@ class SessionsController < ApplicationController
 
   def new
    redirect_to OmniAuth.login_path(:twitter)
- end
+  end
+
+  def failure
+      flash[:notice] = 'Could not login'
+      redirect_to movies_path
+  end
 
 end
