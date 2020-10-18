@@ -14,70 +14,100 @@
  *= require_self
  */
 
- html, body {
-    margin: 0;
-    padding: 0;
-    background: White;
-    color: DarkSlateGrey;
-    font-family: Tahoma, Verdana, sans-serif;
-    font-size: 10pt;
-  }
-  div#main {
-    margin: 0;
-    padding: 0 20px 20px;
-  }
-  a {
-    background: transparent;
-    color: maroon;
-    text-decoration: underline;
-    font-weight: bold;
-  }
-  h1 {
-    color: maroon;
-    font-size: 150%;
-    font-style: italic;
-    display: block;
-    width: 100%;
-    border-bottom: 1px solid DarkSlateGrey;
-  }
-  h1.title {
-    margin: 0 0 1em;
-    padding: 10px;
-    background-color: orange;
-    color: white;
-    border-bottom: 4px solid gold;
-    font-size: 2em;
-    font-style: normal;
-  }
-  table#movies {
-    margin: 10px;
-    border-collapse: collapse;
-    width: 100%;
-    border-bottom: 2px solid black;
-  }
-  table#movies th {
-    border: 2px solid white;
-    font-weight: bold;
-    background-color: wheat;
-  }
-  table#movies th, table#movies td {
-    padding: 4px;
-    text-align: left;
-  }
-  #notice, #warning {
-    background: rosybrown;
-    margin: 1em 0;
-    padding: 4px;
-  }
-  form label {
-    display: block;
-    line-height: 25px;
-    font-weight: bold;
-    color: maroon;
-  }
-  #movieInfo {
+:root {
+ --main-pimary-color: #fad2e1;
+ --main-button-color: #dbe7e4;
+ --main-button-hover-color: #99ead6;
+ --main-txt-color: blue;
+ --main-padding: 15px;
+}
+
+html, body {
+  margin: 0;
+  padding: 0px 25px;
+  background: White;
+  color: DarkSlateGrey;
+  font-family: Tahoma, Verdana, sans-serif;
+  font-size: 10pt;
+}
+header.pimary_rotten {
+  color: red;
+  text-align: center;
+  padding: 30px 0px 30px 0px;
+  font-size: 40px;
+  background-color: var(--main-pimary-color);
+  margin: 10px 0px;
+}
+header.pimary_rotten a {
+  text-decoration: none;
+}
+div#main {
+  margin: 0;
+  padding: 0 20px 20px;
+}
+a {
+  background: transparent;
+  color: maroon;
+  text-decoration: none;
+  font-weight: bold;
+}
+h1 {
+  color: maroon;
+  font-size: 150%;
+  font-style: italic;
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid DarkSlateGrey;
+}
+h1.title {
+  margin: 0 0 1em;
+  padding: 10px;
+  background-color: orange;
+  color: white;
+  border-bottom: 4px solid gold;
+  font-size: 2em;
+  font-style: normal;
+}
+table#movies {
+  margin: 10px;
+  border-collapse: collapse;
+  width: 100%;
+  border-bottom: 2px solid black;
+}
+table#movies th {
+  border: 2px solid white;
+  font-weight: bold;
+  background-color: wheat;
+}
+table#movies th, table#movies td {
+  padding: 4px;
+  text-align: left;
+}
+#notice, #warning {
+  background: rosybrown;
+  margin: 1em 0;
+  padding: 4px;
+}
+form label {
+  display: block;
+  line-height: 25px;
+  font-weight: bold;
+  color: maroon;
+}
+#movieInfo {
   padding: 2ex;
   position: absolute;
   border: 2px double grey;
   background: wheat;
-  }
+}
+div#login {
+  text-align: right;
+}
+div#login a {
+  padding: 10px;
+  background-color: var(--main-button-color);
+}
+div#login a:Hover {
+  padding: 10px;
+  background-color: var(--main-button-hover-color);
+}
