@@ -11,8 +11,12 @@ class MoviesController < ApplicationController
     begin
       @movie = Movie.find(id)
       @cancel_path = movie_path(@movie)
-    rescue ActiveRecord::RecordNotFound
-      redirect_to movies_path
+    # default
+    # rescue ActiveRecord::RecordNotFound
+    #   redirect_to movies_path
+
+    # partical ajax
+      render(:partial => 'movie', :object => @movie) if request.xhr?
     end
   end
 
