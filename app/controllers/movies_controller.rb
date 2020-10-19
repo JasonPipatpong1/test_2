@@ -52,9 +52,10 @@ class MoviesController < ApplicationController
   def destroy
     if set_current_user
       @movie = Movie.find(params[:id])
+      @movie_title_delete = @movie.title
       @movie.destroy
-      flash[:notice] = "#{@movie.title} was successfully deleted."
-      redirect_to movie_path(@movie)
+      flash[:notice] = "#{@movie_title_delete} was successfully deleted."
+      redirect_to movies_path
     else
       flash[:warning] = "Please log in before use this feature"
       redirect_to movies_path
